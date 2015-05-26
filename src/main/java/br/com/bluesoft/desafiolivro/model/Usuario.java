@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Usuario {
 
 	@Id
@@ -12,6 +13,8 @@ public class Usuario {
 	private int id;
 	private String nome;
 	private String email;
+	
+	public Usuario() {}
 	
 	public Usuario(String nome, String email) {
 		this.nome = nome;

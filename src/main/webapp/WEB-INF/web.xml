@@ -6,7 +6,7 @@
          version="2.5">
 
 	<display-name>Archetype Created Web Application</display-name>
-
+	
 	<!-- Configura o Spring Servlet -->
 	<servlet>
 		<servlet-name>Spring-Servlet</servlet-name>
