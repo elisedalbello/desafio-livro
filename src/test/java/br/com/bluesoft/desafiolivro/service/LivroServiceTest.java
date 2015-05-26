@@ -31,6 +31,13 @@ public class LivroServiceTest {
 		service.deletaLivros();
 		livros = popula.insereLivros();
 	}
+	
+	@Test
+	public void deveRecuperarLivroPeloID(){
+		Livro livro = service.recuperarLivroPeloID(11);
+		
+		assertEquals(11, livro.getId());
+	}
 		
 	@Test
 	public void deveSalvarLivro(){
@@ -57,7 +64,7 @@ public class LivroServiceTest {
 		assertEquals("1984", livros.get(0).getNome());
 		assertEquals("Guerra e Paz", livros.get(1).getNome());
 	}
-	
+		
 	@Test
 	public void deveCarregarDoisLivrosPorVez(){
 		service.carregarLivrosNaTela();

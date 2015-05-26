@@ -50,4 +50,15 @@ public class AbstractDAO<T> {
 		query.executeUpdate();
 		transaction.commit();
 	}
+	
+	public T obterPeloID(int id){
+		EntityManager manager = getEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		
+		transaction.begin();
+		T t = manager.find(clazz, id);
+		transaction.commit();
+		
+		return t;
+	}
 }

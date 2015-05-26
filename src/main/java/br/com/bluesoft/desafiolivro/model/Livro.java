@@ -20,6 +20,10 @@ public class Livro {
 		this.nome = nome;
 		this.caminho = caminho;
 	}
+	
+	public int getId() {
+		return id;
+	}
 
 	public String getNome() {
 		return this.nome;
@@ -35,6 +39,6 @@ public class Livro {
 
 	@Override
 	public String toString() {
-		return this.nome;
+		return this.id + " - " + this.nome;
 	}
 }
