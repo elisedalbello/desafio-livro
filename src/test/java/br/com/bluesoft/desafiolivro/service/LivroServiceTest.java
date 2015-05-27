@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.bluesoft.desafiolivro.model.ComparacaoLivros;
 import br.com.bluesoft.desafiolivro.model.Livro;
 import br.com.bluesoft.desafiolivro.util.PopulaLivro;
 
@@ -20,7 +21,7 @@ import br.com.bluesoft.desafiolivro.util.PopulaLivro;
 public class LivroServiceTest {
 	
 	@Autowired
-	LivrosService service;
+	LivroService service;
 	
 	@Autowired
 	PopulaLivro popula;
@@ -67,6 +68,10 @@ public class LivroServiceTest {
 		
 	@Test
 	public void deveCarregarDoisLivrosPorVez(){
-		service.carregarLivrosNaTela();
+		List<ComparacaoLivros> comparacoes = service.carregarLivrosNaTela();
+		
+		assertEquals(10, comparacoes.size());
+		assertEquals("1984", comparacoes.get(0).getLivroEsquerda().getNome());
+		assertEquals("Guerra e Paz", comparacoes.get(0).getLivroDireita().getNome());
 	}
 }

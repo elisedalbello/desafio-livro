@@ -37,27 +37,27 @@ public class AbstractDAO<T> {
 		return t;		
 	}
 	
-	public List<T> obter(){
+	public List<T> listar(){
 		 return getEntityManager().createQuery("from " + clazz.getName()).getResultList();
 	}
 	
 	public void deleta() {
-		EntityManager manager = getEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
+		EntityManager em = getEntityManager();
+		EntityTransaction tx = em.getTransaction();
 				
-		transaction.begin();
-		Query query = manager.createQuery("delete from " + clazz.getName());
+		tx.begin();
+		Query query = em.createQuery("delete from " + clazz.getName());
 		query.executeUpdate();
-		transaction.commit();
+		tx.commit();
 	}
 	
 	public T obterPeloID(int id){
-		EntityManager manager = getEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
+		EntityManager em = getEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		
-		transaction.begin();
-		T t = manager.find(clazz, id);
-		transaction.commit();
+		tx.begin();
+		T t = em.find(clazz, id);
+		tx.commit();
 		
 		return t;
 	}

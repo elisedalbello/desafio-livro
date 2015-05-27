@@ -12,14 +12,6 @@ body{
 	font-family: "Crimson Text", "Times New Roman", serif;
 }
 
-div{
-	width: 720px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 50px;
-	padding-bottom: 30px; 
-}
-
 img{
 	box-sizing: border-box;
 	border: 5px solid black;

@@ -20,6 +20,6 @@ public class RankingService {
 	}
 
 	public List<Ranking> recuperarRanking() {
-		return dao.obter();
+		return dao.listar();
 	}
 }

@@ -84,7 +84,7 @@ public class Ranking {
 		return true;
 	}
 	
-//	public Map<Livro, Integer> computarVotos(){
+//	public HashMap<Livro, Integer> computarVotos(){
 //		String sql = "Select r.livro, count(r.id) as nro_votos "
 //				   + "From Ranking r "
 //				   + "Group by r.livro "

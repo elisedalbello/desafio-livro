@@ -20,6 +20,6 @@ public class UsuarioService {
 	}
 
 	public List<Usuario> recuperarUsuarios() {
-		return dao.obter();
+		return dao.listar();
 	}
 }

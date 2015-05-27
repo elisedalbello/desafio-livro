@@ -1,3 +1,5 @@
+<%@page import="br.com.bluesoft.desafiolivro.service.LivroService"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	
 <html>
@@ -13,9 +15,15 @@
 	
 	<body>
 		<h1 class="titulo-principal">Escolha um livro</h1>
+	
 		
-		<img alt="primeira-opcao" src="pages/img/1984.jpg" class="img-esquerda">
-		<img alt="segunda-opcao" src="pages/img/Guerra-e-Paz.jpg" class="img-direita">
+		<c:forEach var="l" items="${comparacoes}">
+			<img alt="primeira-opcao" src=${l.livroEsquerda.caminho} class="img-esquerda">
+			<img alt="segunda-opcao" src=${l.livroDireita.caminho} class="img-direita">
+		</c:forEach>
+		
+		<!-- <img alt="primeira-opcao" src="pages/img/1984.jpg" class="img-esquerda"> -->
+		<!-- <img alt="segunda-opcao" src="pages/img/Guerra-e-Paz.jpg" class="img-direita"> -->
 		
 		<footer class="rodape"> Bluesoft 2015 </footer>
 	</body>
