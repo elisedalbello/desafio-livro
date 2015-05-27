@@ -18,17 +18,16 @@
 	
 		
 		<c:forEach var="c" items="${comparacoes}">
-			<img alt="${c.livroEsquerda.nome}" src="${c.livroEsquerda.caminho}" id="${c.livroEsquerda.id}" class="img-esquerda">
-			<img alt="${c.livroDireita.nome}" src="${c.livroDireita.caminho}" id="${c.livroDireita.id}" class="img-direita">
+			<img data-id="${c.livroEsquerda.id}" alt="${c.livroEsquerda.nome}" src="${c.livroEsquerda.caminho}" id="${c.livroEsquerda.id}" class="img-esquerda">
+			<img data-id="${c.livroDireita.id}" alt="${c.livroDireita.nome}" src="${c.livroDireita.caminho}" id="${c.livroDireita.id}" class="img-direita">
 		</c:forEach>
+				
+		<footer class="rodape"> Bluesoft 2015 </footer>
 		
-		<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
-
-		<script type="text/javascript" src="comparacao.js"></script>
-	
+		<script type="text/javascript" src="pages/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="pages/js/comparacao.js"></script>
 		<script type="text/javascript"></script>
 		
-		<footer class="rodape"> Bluesoft 2015 </footer>
 	</body>
 	
 </html>

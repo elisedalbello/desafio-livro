@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.bluesoft.desafiolivro.dao.LivroDAO;
 import br.com.bluesoft.desafiolivro.dao.RankingDAO;
+import br.com.bluesoft.desafiolivro.model.Livro;
 import br.com.bluesoft.desafiolivro.model.Ranking;
 
 @Service
@@ -14,7 +16,14 @@ public class RankingService {
 	@Autowired
 	RankingDAO dao;
 	
-	public Ranking salvar(Ranking ranking){
+	@Autowired
+	LivroDAO livroDAO;
+	
+	public Ranking salvar(int livroId){
+		Livro livro = livroDAO.obterPeloID(livroId);
+		Ranking ranking = new Ranking();
+		ranking.setLivro(livro);
+				
 		dao.salvar(ranking);
 		return ranking;
 	}

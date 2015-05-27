@@ -63,3 +63,7 @@ img{
 	border-bottom: 10px solid black;
 	text-transform: uppercase;
 }
+
+.hovering{
+	background: #CCC;
+}
