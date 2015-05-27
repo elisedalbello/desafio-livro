@@ -45,6 +45,7 @@ public class LivroServiceTest {
 		Livro livro = new Livro("Alice no Pais das Maravilhas", "");
 		Livro result  = service.salvar(livro);
 		
+		assertEquals(21, result.getId());
 		assertEquals("Alice no Pais das Maravilhas", result.getNome());
 	}
 	

@@ -30,7 +30,7 @@ public class Livro {
 	}
 	
 	public String getCaminho() {
-		return caminho;
+		return this.caminho;
 	}
 
 	public void setCaminho(String caminho) {
