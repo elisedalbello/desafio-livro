@@ -31,4 +31,9 @@ public class RankingService {
 	public List<Ranking> recuperarRanking() {
 		return dao.listar();
 	}
+
+	public Ranking salvarComUsuario(Ranking ranking) {
+		dao.salvar(ranking);
+		return ranking;
+	}
 }

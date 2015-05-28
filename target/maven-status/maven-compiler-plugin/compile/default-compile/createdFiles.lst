@@ -1,0 +1,15 @@
+br/com/bluesoft/desafiolivro/model/Ranking.class
+br/com/bluesoft/desafiolivro/dao/LivroDAO.class
+br/com/bluesoft/desafiolivro/model/Usuario.class
+br/com/bluesoft/desafiolivro/dao/AbstractDAO.class
+br/com/bluesoft/desafiolivro/dao/RankingDAO.class
+br/com/bluesoft/desafiolivro/service/ComparacaoLivrosService.class
+br/com/bluesoft/desafiolivro/util/PopulaLivro.class
+br/com/bluesoft/desafiolivro/controller/RankingForm.class
+br/com/bluesoft/desafiolivro/service/UsuarioService.class
+br/com/bluesoft/desafiolivro/model/ComparacaoLivros.class
+br/com/bluesoft/desafiolivro/service/RankingService.class
+br/com/bluesoft/desafiolivro/service/LivroService.class
+br/com/bluesoft/desafiolivro/dao/UsuarioDAO.class
+br/com/bluesoft/desafiolivro/model/Livro.class
+br/com/bluesoft/desafiolivro/controller/IndexController.class

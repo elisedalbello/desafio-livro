@@ -42,7 +42,7 @@ public class RankingServiceTest {
 		usuarioDAO.salvar(usuario);
 		
 		Ranking ranking = new Ranking(livros.get(0), usuario);
-		Ranking result = service.salvar(ranking);
+		Ranking result = service.salvarComUsuario(ranking);
 		
 		assertEquals("1984", result.getLivro().getNome());
 		assertEquals("Elise", result.getUsuario().getNome());
@@ -55,7 +55,7 @@ public class RankingServiceTest {
 		usuarioDAO.salvar(usuario);
 		
 		Ranking ranking = new Ranking(livros.get(1), usuario);
-		service.salvar(ranking);
+		service.salvarComUsuario(ranking);
 		
 		List<Ranking> rankings = service.recuperarRanking();
 		

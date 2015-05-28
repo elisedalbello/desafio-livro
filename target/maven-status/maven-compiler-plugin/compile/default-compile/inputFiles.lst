@@ -1,0 +1,15 @@
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/dao/AbstractDAO.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/dao/LivroDAO.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/controller/IndexController.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/service/ComparacaoLivrosService.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/model/Usuario.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/controller/RankingForm.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/dao/UsuarioDAO.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/util/PopulaLivro.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/model/Ranking.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/dao/RankingDAO.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/service/UsuarioService.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/service/LivroService.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/model/Livro.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/service/RankingService.java
+/Users/elise/workspace-acelerato/desafio-livro/src/main/java/br/com/bluesoft/desafiolivro/model/ComparacaoLivros.java

@@ -12,5 +12,4 @@ public class RankingForm {
 		this.livroId = livroId;
 	}
 	
-	
 }

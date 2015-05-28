@@ -1,6 +1,6 @@
 
-$('.img-esquerda').click(function() {
-	$(this).css('border', "solid 5px silver");
+$('.livro').click(function() {
+
 	var id = $(this).data("id");
 	
 	$.ajax({
@@ -9,30 +9,11 @@ $('.img-esquerda').click(function() {
 		context : document.body,
 		data: { livroId: id},
 		success : function() {
-			alert("Funcionou");
+			alert("Funcionou " + id);
+			window.location.reload(true);
 		},
 		error : function() {
-			alert("Não funcionou");
+			alert("Não funcionou " + id);
 		}
 	});
 });
-
-$(".img-direita").click(function() {
-	$(this).css('border', "solid 5px silver");
-	var id = $(this).data("id");
-	
-	$.ajax({
-		type: 'POST',
-		url : "salvar/voto",
-		context : document.body,
-		data: { livroId: id},
-		success : function() {
-			alert("Funcionou");
-		},
-		error : function() {
-			alert("Não funcionou");
-		}
-	});
-});
-
-

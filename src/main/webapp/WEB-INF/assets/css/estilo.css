@@ -12,6 +12,11 @@ body{
 	font-family: "Times New Roman", serif;
 }
 
+.div-form{
+	padding: 25px;
+	margin: 25%;
+}
+
 img{
 	box-sizing: border-box;
 	border: 5px solid black;
@@ -30,16 +35,18 @@ img{
 }
 
 .botao{
-		width: 10%;
-		height: 5%;
-		position: relative;
-		background-color: #008080;
-		border-bottom: 2px solid black;
-		border-right: 2px solid black;
-		border-radius: 5px;
-		color: white;
-		font-family: "Open Sans Condensed", "Arial", sans-serif;
-		font-size: 20px;
+	width: 10%;
+	height: 5%;
+	position: relative;
+	margin: 20px;
+	padding: 20px;
+	background-color: #008080;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 5px;
+	color: white;
+	font-family: "Open Sans Condensed", "Arial", sans-serif;
+	font-size: 20px;
 }
 
 .rodape{
