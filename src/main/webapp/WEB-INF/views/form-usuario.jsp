@@ -14,12 +14,12 @@
 		<h1 class="titulo-principal">Formulário</h1>
 		
 		<div class="div-form">
-			<form action="POST" >
+			<form action="POST" id="form">
 				<p>Nome:</p></br> 
-				<input type="text" name="nome"></br>
+				<input type="text" id="nome" name="nome"></br>
 				<p>Email:</p></br>
 				<input type="email" id="email" nome="email"></br>
-				<input type="submit" id="gravar" name="gravar" value="Gravar" class="botao">
+				<input type="button" id="gravar" name="gravar" value="Enviar" class="botao">
 			</form>
 		</div>
 		

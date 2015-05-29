@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluesoft.desafiolivro.model.Livro;
+import br.com.bluesoft.desafiolivro.model.Usuario;
 import br.com.bluesoft.desafiolivro.service.ComparacaoLivrosService;
 import br.com.bluesoft.desafiolivro.service.LivroService;
 import br.com.bluesoft.desafiolivro.service.RankingService;
@@ -70,22 +71,22 @@ public class IndexController {
 		List<Livro> livrosVotados = carregarListaVotados(form, session);
 		
 		session.setAttribute("livrosVotados", livrosVotados);
-		System.out.println("----------------" + request.getSession().getAttribute("livrosVotados"));
 	
 		return "ok";		
 	}
 
 	@RequestMapping(value = "/formulario", method=RequestMethod.POST)
-	public String salvarUsuario(HttpServletRequest request){
+	public void salvarUsuario(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		
-		//session.setAttribute("usuario", usuarioService.recuperarUsuarioPeloID(usuarioID));
-		return "/ranking";
+		//Usuario usuario = new Usuario(nome, email);
+		
+		session.setAttribute("usuario", "");
+		//return "/ranking";
 	}
 	
 	
-	private List<Livro> carregarListaVotados(RankingForm form,
-			HttpSession session) {
+	private List<Livro> carregarListaVotados(RankingForm form, HttpSession session) {
 		List<Livro> livrosVotados = (List<Livro>) session.getAttribute("livrosVotados");
 		
 		if(livrosVotados == null){
