@@ -14,7 +14,7 @@ import br.com.bluesoft.desafiolivro.model.Livro;
 public class ComparacaoLivrosService {
 	
 	@Autowired
-	LivroDAO dao;
+	private LivroDAO dao;
 	
 	public List<ComparacaoLivros> carregarLivrosNaTela() {
 		int i;

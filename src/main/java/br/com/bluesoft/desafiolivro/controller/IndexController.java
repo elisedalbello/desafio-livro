@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluesoft.desafiolivro.model.Livro;
-import br.com.bluesoft.desafiolivro.model.Usuario;
 import br.com.bluesoft.desafiolivro.service.ComparacaoLivrosService;
 import br.com.bluesoft.desafiolivro.service.LivroService;
 import br.com.bluesoft.desafiolivro.service.RankingService;
@@ -61,39 +60,31 @@ public class IndexController {
 	
 	@RequestMapping(value = "/salvar/voto", method=RequestMethod.POST)
 	@ResponseBody
-	public String salvarVoto(RankingForm form, HttpServletRequest request){
+	public String salvarVoto(Livro livro, HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
 		
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		session.setAttribute(INDEX_SESSION_ATRIBUTE, ++index);
 				
-		List<Livro> livrosVotados = carregarListaVotados(form, session);
+		List<Livro> livrosVotados = carregarListaVotados(livro, session);
 		
 		session.setAttribute("livrosVotados", livrosVotados);
 	
+		System.out.println("index controller livros::::::" + session.getAttribute("livrosVotados"));
 		return "ok";		
 	}
-
-	@RequestMapping(value = "/formulario", method=RequestMethod.POST)
-	public void salvarUsuario(HttpServletRequest request){
-		HttpSession session = request.getSession();
-		
-		//Usuario usuario = new Usuario(nome, email);
-		
-		session.setAttribute("usuario", "");
-		//return "/ranking";
-	}
 	
-	
-	private List<Livro> carregarListaVotados(RankingForm form, HttpSession session) {
+	private List<Livro> carregarListaVotados(Livro livro, HttpSession session) {
 		List<Livro> livrosVotados = (List<Livro>) session.getAttribute("livrosVotados");
+		
+		System.out.println("--------------------" + livro.getId());
 		
 		if(livrosVotados == null){
 			livrosVotados = new ArrayList<>();
 		}
 		
-		livrosVotados.add(livroService.recuperarLivroPeloID(form.getLivroId()));
+		livrosVotados.add(livroService.recuperarLivroPeloID(livro.getId()));
 		return livrosVotados;
 	}
 

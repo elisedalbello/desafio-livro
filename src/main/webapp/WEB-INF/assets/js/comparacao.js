@@ -16,7 +16,7 @@ $('.livro').click(function() {
 		type: 'POST',
 		url : "salvar/voto",
 		context : document.body,
-		data: { livroId: id},
+		data: { id: id},
 		success : function() {
 			window.location.reload(true);
 		},
@@ -38,6 +38,20 @@ $('#gravar').click(function(){
 	}else if(email == "" || !emailValido(email)){
 		$('#email').focus();
 		alert("Preencha com um email válido");
+		
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: "formulario",
+			context: document.body,
+			data: { nome: nome, email: email },
+			success: function(){
+				alert("Os dados foram salvos");
+			},
+			error: function() {
+				alert("Os dados não foram salvos");
+			}
+		});
 	}
 	
 });
