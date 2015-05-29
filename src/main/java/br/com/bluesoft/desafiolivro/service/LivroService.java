@@ -24,8 +24,8 @@ public class LivroService {
 		return dao.listar();
 	}
 
-	public Livro recuperarLivroPeloID(int i) {
-		return dao.obterPeloID(i);
+	public Livro recuperarLivroPeloID(int livroID) {
+		return dao.obterPeloID(livroID);
 	}
 	
 	public void deletaLivros() {

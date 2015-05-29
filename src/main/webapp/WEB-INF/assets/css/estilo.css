@@ -1,20 +1,22 @@
 body{
 	line-height: 1.5;
+	background-color: #F2FFFC;
+	font-family: "Open Sans Condensed", "Arial", sans-serif;
 }
 
 h1{
-	font-family: "Open Sans Condensed", "Arial", sans-serif;
 	padding: 20px;
 }
 
-body{
-	background-color: #F2FFFC;
-	font-family: "Times New Roman", serif;
+p{
+	margin-top: 20px;
+	font-size: 20px;
 }
 
-.div-form{
-	padding: 25px;
-	margin: 25%;
+input{
+	height: 5%;
+	width: 30%;
+	font-size: 18px;
 }
 
 img{
@@ -34,19 +36,22 @@ img{
 	margin-right: 25%;
 }
 
+.div-form{
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 10%;
+}
+
 .botao{
-	width: 10%;
+	width: 30%;
 	height: 5%;
-	position: relative;
-	margin: 20px;
-	padding: 20px;
+	font-size: 20px;
+	color: white;
+	margin-top: 20px;
 	background-color: #008080;
 	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 	border-radius: 5px;
-	color: white;
-	font-family: "Open Sans Condensed", "Arial", sans-serif;
-	font-size: 20px;
 }
 
 .rodape{
@@ -69,8 +74,4 @@ img{
 	padding: 25px;
 	border-bottom: 10px solid black;
 	text-transform: uppercase;
-}
-
-.hovering{
-	background: #CCC;
 }

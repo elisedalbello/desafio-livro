@@ -18,8 +18,8 @@
 				<p>Nome:</p></br> 
 				<input type="text" name="nome"></br>
 				<p>Email:</p></br>
-				<input type="email" nome="email"></br>
-				<input type="submit" name="gravar-usuario" value="Gravar" class="botao">
+				<input type="email" id="email" nome="email"></br>
+				<input type="submit" id="gravar" name="gravar" value="Gravar" class="botao">
 			</form>
 		</div>
 		

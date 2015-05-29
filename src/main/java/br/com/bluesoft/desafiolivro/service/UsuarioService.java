@@ -22,4 +22,8 @@ public class UsuarioService {
 	public List<Usuario> recuperarUsuarios() {
 		return dao.listar();
 	}
+	
+	public Usuario recuperarUsuarioPeloID(int usuarioID){
+		return dao.obterPeloID(usuarioID);
+	}
 }

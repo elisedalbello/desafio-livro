@@ -9,7 +9,6 @@ $('.livro').click(function() {
 		context : document.body,
 		data: { livroId: id},
 		success : function() {
-			alert("Funcionou " + id);
 			window.location.reload(true);
 		},
 		error : function() {
@@ -17,3 +16,15 @@ $('.livro').click(function() {
 		}
 	});
 });
+
+var validarEmail = function(email) {
+	verifica = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2}/;
+	
+	if(!verifica.exec(email)){
+		$('#email').focus(function() {
+			alert("E-mail inválido");
+		});
+	}
+} 
+
+
