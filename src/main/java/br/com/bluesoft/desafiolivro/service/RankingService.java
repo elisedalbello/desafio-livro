@@ -33,6 +33,7 @@ public class RankingService {
 	}
 
 	public Ranking salvarComUsuario(Ranking ranking) {
+		System.out.println("***************************" + ranking);
 		dao.salvar(ranking);
 		return ranking;
 	}

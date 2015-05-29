@@ -28,9 +28,6 @@ public class RankingController {
 		
 		HttpSession session = request.getSession();
 		
-		System.out.println("lalalalallaa::::" + session.getAttribute("usuario"));
-		System.out.println("lelelelellel::::" + session.getAttribute("livrosVotados"));
-		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		List<Livro> livros = (List<Livro>) session.getAttribute("livrosVotados");
 
@@ -41,8 +38,6 @@ public class RankingController {
 
 	private void salvarRanking(Usuario usuario, List<Livro> livros) {
 		for(Livro livro : livros){
-			System.out.println("Livro:::::::" + livro);
-			System.out.println("Usuario:::::" + usuario);
 			
 			Ranking ranking = new Ranking(livro, usuario);
 			service.salvarComUsuario(ranking);

@@ -87,6 +87,11 @@ public class Ranking {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return this.id + ": " + this.livro + " / " + this.usuario;
+	}
+	
 //	public HashMap<Livro, Integer> computarVotos(){
 //		String sql = "Select r.livro, count(r.id) as nro_votos "
 //				   + "From Ranking r "
