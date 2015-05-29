@@ -20,16 +20,20 @@ public class RankingController {
 	
 	@Autowired
 	private RankingService service;
+
 	
 	@RequestMapping(value = "/ranking")
 	@ResponseBody
 	public String carregarRanking(HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
+		
+		System.out.println("lalalalallaa::::" + session.getAttribute("usuario"));
+		System.out.println("lelelelellel::::" + session.getAttribute("livrosVotados"));
+		
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		List<Livro> livros = (List<Livro>) session.getAttribute("livrosVotados");
-		System.out.println("lalalalallaa::::" + usuario);
-		System.out.println("lelelelellel::::" + livros);
+
 		salvarRanking(usuario, livros);
 			
 		return "ranking";		
@@ -39,6 +43,7 @@ public class RankingController {
 		for(Livro livro : livros){
 			System.out.println("Livro:::::::" + livro);
 			System.out.println("Usuario:::::" + usuario);
+			
 			Ranking ranking = new Ranking(livro, usuario);
 			service.salvarComUsuario(ranking);
 		}

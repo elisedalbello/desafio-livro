@@ -60,31 +60,28 @@ public class IndexController {
 	
 	@RequestMapping(value = "/salvar/voto", method=RequestMethod.POST)
 	@ResponseBody
-	public String salvarVoto(Livro livro, HttpServletRequest request){
+	public String salvarVoto(Integer id, HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
 		
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		session.setAttribute(INDEX_SESSION_ATRIBUTE, ++index);
 				
-		List<Livro> livrosVotados = carregarListaVotados(livro, session);
+		List<Livro> livrosVotados = carregarListaVotados(id, session);
 		
 		session.setAttribute("livrosVotados", livrosVotados);
 	
-		System.out.println("index controller livros::::::" + session.getAttribute("livrosVotados"));
 		return "ok";		
 	}
 	
-	private List<Livro> carregarListaVotados(Livro livro, HttpSession session) {
+	private List<Livro> carregarListaVotados(Integer id, HttpSession session) {
 		List<Livro> livrosVotados = (List<Livro>) session.getAttribute("livrosVotados");
-		
-		System.out.println("--------------------" + livro.getId());
-		
+				
 		if(livrosVotados == null){
 			livrosVotados = new ArrayList<>();
 		}
 		
-		livrosVotados.add(livroService.recuperarLivroPeloID(livro.getId()));
+		livrosVotados.add(livroService.recuperarLivroPeloID(id));
 		return livrosVotados;
 	}
 

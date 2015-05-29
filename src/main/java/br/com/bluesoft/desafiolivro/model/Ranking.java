@@ -1,10 +1,13 @@
 package br.com.bluesoft.desafiolivro.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Ranking {
@@ -16,7 +19,7 @@ public class Ranking {
 	@OneToOne
 	private Livro livro;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	private Usuario usuario;
 	
 	public Ranking() {}

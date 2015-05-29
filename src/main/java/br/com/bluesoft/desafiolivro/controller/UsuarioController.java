@@ -13,13 +13,12 @@ import br.com.bluesoft.desafiolivro.model.Usuario;
 public class UsuarioController {
 	
 	@RequestMapping(value = "/formulario", method=RequestMethod.POST)
-	public String salvarUsuario(Usuario usuario, HttpServletRequest request){
+	public String salvarUsuario(String nome, String email, HttpServletRequest request){
 		HttpSession session = request.getSession();
 		
-		Usuario usuarioCadastro = new Usuario(usuario.getNome(), usuario.getEmail()); 
+		Usuario usuarioCadastro = new Usuario(nome, email); 
 		
 		session.setAttribute("usuario", usuarioCadastro);
-		System.out.println("usuario controller:::::" + session.getAttribute("usuario"));
 		return "redirect:ranking";
 	}
 
