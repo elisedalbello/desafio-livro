@@ -1,6 +1,6 @@
 package br.com.bluesoft.desafiolivro.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -22,15 +22,15 @@ import br.com.bluesoft.desafiolivro.util.PopulaLivro;
 public class RankingServiceTest {
 	
 	@Autowired
-	RankingService service;
+	private RankingService service;
 	
 	@Autowired
-	PopulaLivro popula;
+	private PopulaLivro popula;
 	
 	@Autowired
-	UsuarioDAO usuarioDAO;
+	private UsuarioDAO usuarioDAO;
 	
-	List<Livro> livros;
+	private List<Livro> livros;
 	@Before
 	public void init(){
 		livros = popula.insereLivros();
@@ -57,7 +57,7 @@ public class RankingServiceTest {
 		Ranking ranking = new Ranking(livros.get(1), usuario);
 		service.salvarComUsuario(ranking);
 		
-		List<Ranking> rankings = service.recuperarRanking();
+		List<Ranking> rankings = service.obterRanking();
 		
 		assertEquals(2, rankings.size());
 		assertEquals("1984", rankings.get(0).getLivro().getNome());

@@ -16,7 +16,7 @@ $('.livro').click(function() {
 		type: 'POST',
 		url : "salvar/voto",
 		context : document.body,
-		data: { id: id},
+		data: { livroId: id},
 		success : function() {
 			window.location.reload(true);
 		},
@@ -46,13 +46,12 @@ $('#gravar').click(function(){
 			context: document.body,
 			data: { nome: nome, email: email },
 			success: function(){
-				alert("Os dados foram salvos");
+				location.href = 'ranking';
 			},
 			error: function() {
 				alert("Os dados não foram salvos");
 			}
 		});
 	}
-	
 });
 

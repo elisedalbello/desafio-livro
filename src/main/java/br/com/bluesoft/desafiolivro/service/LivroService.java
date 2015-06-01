@@ -12,7 +12,7 @@ import br.com.bluesoft.desafiolivro.model.Livro;
 public class LivroService {
 
 	@Autowired
-	LivroDAO dao;
+	private LivroDAO dao;
 
 	public Livro salvar(Livro livro) {
 		dao.salvar(livro);

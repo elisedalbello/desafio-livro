@@ -15,10 +15,10 @@
 		
 		<div class="div-form">
 			<form action="POST" id="form">
-				<p>Nome:</p></br> 
-				<input type="text" id="nome" name="nome"></br>
-				<p>Email:</p></br>
-				<input type="email" id="email" nome="email"></br>
+				<p>Nome:</p><br> 
+				<input type="text" id="nome" name="nome"><br>
+				<p>Email:</p><br>
+				<input type="email" id="email" name="email"><br>
 				<input type="button" id="gravar" name="gravar" value="Enviar" class="botao">
 			</form>
 		</div>

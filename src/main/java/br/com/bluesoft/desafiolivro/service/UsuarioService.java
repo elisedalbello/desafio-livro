@@ -12,7 +12,7 @@ import br.com.bluesoft.desafiolivro.model.Usuario;
 public class UsuarioService {
 	
 	@Autowired
-	UsuarioDAO dao;
+	private UsuarioDAO dao;
 	
 	public Usuario salvar(Usuario usuario){
 		dao.salvar(usuario);

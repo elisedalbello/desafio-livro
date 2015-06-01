@@ -7,41 +7,51 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.bluesoft.desafiolivro.model.Livro;
-import br.com.bluesoft.desafiolivro.model.Ranking;
 import br.com.bluesoft.desafiolivro.model.Usuario;
 import br.com.bluesoft.desafiolivro.service.RankingService;
+import br.com.bluesoft.desafiolivro.service.UsuarioService;
 
 @Controller
 public class RankingController {
 	
 	@Autowired
 	private RankingService service;
-
 	
-	@RequestMapping(value = "/ranking")
+	@Autowired
+	private UsuarioService usuarioService;
+
+	@Autowired
+	private HttpSession session;
+	
+	@RequestMapping(value = "/salvarRanking")
 	@ResponseBody
 	public String carregarRanking(HttpServletRequest request){
 		
-		HttpSession session = request.getSession();
-		
-		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		List<Livro> livros = (List<Livro>) session.getAttribute("livrosVotados");
-
-		salvarRanking(usuario, livros);
-			
+		Usuario usuario = getUsuarioSession();
+		
+		usuarioService.salvar(usuario);
+		service.salvarRanking(usuario, livros);
+		
 		return "ranking";		
-	}
+	}	
 
-	private void salvarRanking(Usuario usuario, List<Livro> livros) {
-		for(Livro livro : livros){
-			
-			Ranking ranking = new Ranking(livro, usuario);
-			service.salvarComUsuario(ranking);
-		}
+	
+	@RequestMapping(value="/ranking")
+	public String exibirRankings(Model model){
+		
+		model.addAttribute("rankingGeral", service.obterRankingGeralOrdenado());
+		model.addAttribute("rankingUsuario", service.obterRankingUsuarioOrdenado(getUsuarioSession()));
+		
+		return "ranking";
 	}
-
+	
+	private Usuario getUsuarioSession() {
+		return (Usuario) session.getAttribute("usuario");
+	}
 }

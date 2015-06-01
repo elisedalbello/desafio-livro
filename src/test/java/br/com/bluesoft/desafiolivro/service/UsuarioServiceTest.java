@@ -17,7 +17,7 @@ import br.com.bluesoft.desafiolivro.model.Usuario;
 public class UsuarioServiceTest {
 	
 	@Autowired
-	UsuarioService service;
+	private UsuarioService service;
 	
 	@Test
 	public void deveSalvarOUsuario(){

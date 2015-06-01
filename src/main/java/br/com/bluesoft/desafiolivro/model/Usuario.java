@@ -21,6 +21,10 @@ public class Usuario {
 		this.email = email;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	public String getNome() {
 		return this.nome;
 	}
@@ -60,7 +64,5 @@ public class Usuario {
 		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 }

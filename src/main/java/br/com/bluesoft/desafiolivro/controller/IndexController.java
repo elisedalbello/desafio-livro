@@ -3,7 +3,6 @@ package br.com.bluesoft.desafiolivro.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.com.bluesoft.desafiolivro.model.Livro;
 import br.com.bluesoft.desafiolivro.service.ComparacaoLivrosService;
 import br.com.bluesoft.desafiolivro.service.LivroService;
-import br.com.bluesoft.desafiolivro.service.RankingService;
 import br.com.bluesoft.desafiolivro.service.UsuarioService;
 
 @Controller
@@ -30,19 +28,17 @@ public class IndexController {
 	private ComparacaoLivrosService comparacaoService;
 	
 	@Autowired
-	private RankingService rankingService;
-	
-	@Autowired
 	private LivroService livroService;
 	
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping(value = { "" ,"/" }, method=RequestMethod.GET )
-	public String voteNoLivro(Model model, HttpServletRequest request, Integer indexLista) {
+	public String voteNoLivro(Model model, Integer indexLista) {
 		
-		HttpSession session = request.getSession();
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		
 		if(index == null){
@@ -60,28 +56,27 @@ public class IndexController {
 	
 	@RequestMapping(value = "/salvar/voto", method=RequestMethod.POST)
 	@ResponseBody
-	public String salvarVoto(Integer id, HttpServletRequest request){
-		
-		HttpSession session = request.getSession();
+	public String salvarVoto(Integer livroId){
 		
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		session.setAttribute(INDEX_SESSION_ATRIBUTE, ++index);
 				
-		List<Livro> livrosVotados = carregarListaVotados(id, session);
+		List<Livro> livrosVotados = carregarListaVotados(livroId);
 		
 		session.setAttribute("livrosVotados", livrosVotados);
 	
 		return "ok";		
 	}
 	
-	private List<Livro> carregarListaVotados(Integer id, HttpSession session) {
+	private List<Livro> carregarListaVotados(Integer livroId) {
+		
 		List<Livro> livrosVotados = (List<Livro>) session.getAttribute("livrosVotados");
 				
 		if(livrosVotados == null){
 			livrosVotados = new ArrayList<>();
 		}
 		
-		livrosVotados.add(livroService.recuperarLivroPeloID(id));
+		livrosVotados.add(livroService.recuperarLivroPeloID(livroId));
 		return livrosVotados;
 	}
 

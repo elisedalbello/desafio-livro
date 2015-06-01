@@ -14,7 +14,7 @@ import com.google.common.collect.ImmutableList;
 public class PopulaLivro {
 	
 	@Autowired
-	LivroDAO livroDAO;
+	private LivroDAO livroDAO;
 	
 	public PopulaLivro() {}
 	

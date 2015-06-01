@@ -20,15 +20,16 @@ import br.com.bluesoft.desafiolivro.util.PopulaLivro;
 public class ComparacaoLivrosServiceTest {
 	
 	@Autowired
-	ComparacaoLivrosService service;
+	private ComparacaoLivrosService service;
 	
 	@Autowired
-	LivroService livroService;
+	private LivroService livroService;
 	
 	@Autowired
-	PopulaLivro popula;
+	private PopulaLivro popula;
 	
-	List<Livro> livros;
+	private List<Livro> livros;
+	
 	@Before
 	public void init(){
 		livroService.deletaLivros();

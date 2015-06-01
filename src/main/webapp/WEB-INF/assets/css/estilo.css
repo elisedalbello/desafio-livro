@@ -36,6 +36,16 @@ img{
 	margin-right: 25%;
 }
 
+.ranking-usuario{
+	float: left;
+	margin-left: 25%;
+}
+
+.ranking-geral{
+	float: right;
+	margin-left: 25%;
+}
+
 .div-form{
 	margin-left: 20%;
 	margin-right: 20%;
