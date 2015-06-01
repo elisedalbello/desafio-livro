@@ -52,17 +52,17 @@ public class VotoDAO  extends AbstractDAO<Voto>{
 		return votoUsuario;
 	}
 
-	public Map<BigInteger, String> obterRanking(Usuario usuario) {
+	public Map<String, BigInteger> obterRanking(Usuario usuario) {
 		EntityManager em = getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
-		Map<BigInteger, String> livroVoto = new LinkedHashMap<>();
+		Map<String, BigInteger> livroVoto = new LinkedHashMap<>();
 		
 		tx.begin();
 		
 		StringBuilder hql = new StringBuilder();
 				
-		hql.append("select count(v.livro_id) as qtd_votos, l.nome ");
+		hql.append("select l.nome, count(v.livro_id) as qtd_votos ");
 		hql.append("from Voto v ");
 		hql.append("left join Livro l on(v.livro_id = l.id) ");
 		hql.append("left join Usuario u on(v.usuario_id = u.id) ");
@@ -78,23 +78,23 @@ public class VotoDAO  extends AbstractDAO<Voto>{
 		tx.commit();
 		
 		for (Object[]  result : list) {
-			livroVoto.put((BigInteger) result[0], (String) result[1]);
+			livroVoto.put((String) result[0], (BigInteger) result[1]);
 		}
 		
 		return livroVoto;
 	}
 	
-	public Map<BigInteger, String> obterRankingGeral(){
+	public Map<String, BigInteger> obterRankingGeral(){
 		EntityManager em = getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
-		Map<BigInteger, String> livroVoto = new LinkedHashMap<>();
+		Map<String, BigInteger> livroVoto = new LinkedHashMap<>();
 		
 		tx.begin();
 		
 		StringBuilder hql = new StringBuilder();
 				
-		hql.append("select count(v.livro_id) as qtd_votos, l.nome ");
+		hql.append("select l.nome, count(v.livro_id) as qtd_votos ");
 		hql.append("from Voto v ");
 		hql.append("left join Livro l on(v.livro_id = l.id) ");
 		hql.append("left join Usuario u on(v.usuario_id = u.id) ");
@@ -107,7 +107,12 @@ public class VotoDAO  extends AbstractDAO<Voto>{
 		tx.commit();
 		
 		for (Object[]  result : list) {
-			livroVoto.put((BigInteger) result[0], (String) result[1]);
+			
+			String livro = (String) result[0];
+			BigInteger voto = (BigInteger) result[1];
+		
+			livroVoto.put(livro, voto);	
+			
 		}
 		
 		return livroVoto;

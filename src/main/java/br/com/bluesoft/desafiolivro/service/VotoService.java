@@ -43,20 +43,12 @@ public class VotoService {
 		return dao.listar();
 	}
 	
-//	public Map<Integer, Livro> obterResultados(){
-//		return null;
-//	}
-	
-//	public List<Voto> obterVotosPor(Usuario usuario){
-//		return dao.obterPeloIdUsuario(usuario);
-//	}
-	
-	public Map<BigInteger, String> obterRankingGeralOrdenado(){
+	public Map<String, BigInteger> obterRankingGeralOrdenado(){
 		
 		return dao.obterRankingGeral();
 	}
 
-	public Map<BigInteger, String> obterRankingUsuarioOrdenado(Usuario usuario){
+	public Map<String, BigInteger> obterRankingUsuarioOrdenado(Usuario usuario){
 		
 		return dao.obterRanking(usuario);
 	}
