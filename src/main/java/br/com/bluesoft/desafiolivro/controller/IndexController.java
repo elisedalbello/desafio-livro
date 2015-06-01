@@ -45,11 +45,10 @@ public class IndexController {
 			session.setAttribute(INDEX_SESSION_ATRIBUTE, index);
 		}
 		
-		model.addAttribute("comparacao", comparacaoService.carregarComparacao(index));
-		System.out.println("index: " + index + " - comparacao: " + comparacaoService.carregarComparacao(index));
-		
-		if(index != 9){
+		if(index <= 9){
+			model.addAttribute("comparacao", comparacaoService.carregarComparacao(index));
 			return INDEX_VIEW;
+			
 		}else{
 			return "form-usuario";
 		}
