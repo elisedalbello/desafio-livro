@@ -13,16 +13,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.bluesoft.desafiolivro.dao.UsuarioDAO;
 import br.com.bluesoft.desafiolivro.model.Livro;
-import br.com.bluesoft.desafiolivro.model.Ranking;
+import br.com.bluesoft.desafiolivro.model.Voto;
 import br.com.bluesoft.desafiolivro.model.Usuario;
 import br.com.bluesoft.desafiolivro.util.PopulaLivro;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration( locations = {"file:src/main/webapp/WEB-INF/spring/spring-context.xml"} )
-public class RankingServiceTest {
+public class VotoServiceTest {
 	
 	@Autowired
-	private RankingService service;
+	private VotoService service;
 	
 	@Autowired
 	private PopulaLivro popula;
@@ -37,12 +37,12 @@ public class RankingServiceTest {
 	}
 	
 	@Test
-	public void deveSalvarORanking(){
+	public void deveSalvarOVoto(){
 		Usuario usuario = new Usuario("Elise", "elise@email.com.br");
 		usuarioDAO.salvar(usuario);
 		
-		Ranking ranking = new Ranking(livros.get(0), usuario);
-		Ranking result = service.salvarComUsuario(ranking);
+		Voto voto = new Voto(livros.get(0), usuario);
+		Voto result = service.salvarComUsuario(voto);
 		
 		assertEquals("1984", result.getLivro().getNome());
 		assertEquals("Elise", result.getUsuario().getNome());
@@ -50,19 +50,17 @@ public class RankingServiceTest {
 	}
 
 	@Test
-	public void deveRecuperarTodosOsRankings(){
+	public void deveRecuperarTodosOsVotos(){
 		Usuario usuario = new Usuario("Maria", "maria@email.com.br");
 		usuarioDAO.salvar(usuario);
 		
-		Ranking ranking = new Ranking(livros.get(1), usuario);
-		service.salvarComUsuario(ranking);
+		Voto voto = new Voto(livros.get(1), usuario);
+		service.salvarComUsuario(voto);
 		
-		List<Ranking> rankings = service.obterRanking();
+		List<Voto> votos = service.obterVotos();
 		
-		assertEquals(2, rankings.size());
-		assertEquals("1984", rankings.get(0).getLivro().getNome());
-		assertEquals("Guerra e Paz", rankings.get(1).getLivro().getNome());
-		assertEquals("Elise", rankings.get(0).getUsuario().getNome());
-		assertEquals("Maria", rankings.get(1).getUsuario().getNome());
+		assertEquals(1, votos.size());
+		assertEquals("Guerra e Paz", votos.get(0).getLivro().getNome());
+		assertEquals("Maria", votos.get(0).getUsuario().getNome());
 	}
 }

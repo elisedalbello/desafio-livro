@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Livro {
+ public class Livro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,7 +39,7 @@ public class Livro {
 
 	@Override
 	public String toString() {
-		return this.id + " - " + this.nome;
+		return this.nome;
 	}
 
 	@Override

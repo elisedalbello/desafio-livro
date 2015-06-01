@@ -17,12 +17,11 @@
 		
 		<img data-id="${comparacao.livroEsquerda.id}" alt="${comparacao.livroEsquerda.nome}" src="${comparacao.livroEsquerda.caminho}" id="${comparacao.livroEsquerda.id}" class="livro img-esquerda">
 		<img data-id="${comparacao.livroDireita.id}" alt="${comparacao.livroDireita.nome}" src="${comparacao.livroDireita.caminho}" id="${comparacao.livroDireita.id}" class="livro img-direita">
-		
-				
+						
 		<footer class="rodape"> Bluesoft 2015 </footer>
 		
 		<script type="text/javascript" src="pages/js/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="pages/js/comparacao.js"></script>
+		<script type="text/javascript" src="pages/js/script.js"></script>
 		<script type="text/javascript"></script>
 		
 	</body>

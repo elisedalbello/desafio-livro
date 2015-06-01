@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Ranking {
+public class Voto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +19,9 @@ public class Ranking {
 	@OneToOne
 	private Usuario usuario;
 	
-	public Ranking() {}
+	public Voto() {}
 
-	public Ranking(Livro livro, Usuario usuario) {
+	public Voto(Livro livro, Usuario usuario) {
 		this.livro = livro;
 		this.usuario = usuario;
 	}

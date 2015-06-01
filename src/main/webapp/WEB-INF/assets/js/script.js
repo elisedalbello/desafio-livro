@@ -8,7 +8,6 @@ var emailValido = function(email) {
 	}
 } 
 
-
 $('.livro').click(function() {
 	var id = $(this).data("id");
 	
@@ -55,3 +54,17 @@ $('#gravar').click(function(){
 	}
 });
 
+
+//$('#nova-votacao').click(function() {
+//$.ajax({
+//	type : 'GET',
+//	url : '/',
+//	context : document.body,
+//	success : function() {
+//		location.href = '/';
+//	},
+//	error : function() {
+//		alert("Não foi possivel redirecionar para nova votação");
+//	}
+//});
+//});

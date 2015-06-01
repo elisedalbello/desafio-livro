@@ -28,10 +28,11 @@ public class ComparacaoLivrosServiceTest {
 	@Autowired
 	private PopulaLivro popula;
 	
-	private List<Livro> livros;
+	
 	
 	@Before
 	public void init(){
+		List<Livro> livros;
 		livroService.deletaLivros();
 		livros = popula.insereLivros();
 	}

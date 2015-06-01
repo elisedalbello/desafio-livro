@@ -12,7 +12,7 @@
 
 		<class>br.com.bluesoft.desafiolivro.model.Livro</class>
 		<class>br.com.bluesoft.desafiolivro.model.Usuario</class>
-		<class>br.com.bluesoft.desafiolivro.model.Ranking</class>
+		<class>br.com.bluesoft.desafiolivro.model.Voto</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />

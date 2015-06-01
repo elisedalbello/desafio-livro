@@ -3,6 +3,7 @@ package br.com.bluesoft.desafiolivro.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,9 @@ public class IndexController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@Autowired
-	private HttpSession session;
-	
 	@RequestMapping(value = { "" ,"/" }, method=RequestMethod.GET )
-	public String voteNoLivro(Model model, Integer indexLista) {
+	public String voteNoLivro(Model model, Integer indexLista, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		
@@ -45,8 +44,10 @@ public class IndexController {
 			index = 0;
 			session.setAttribute(INDEX_SESSION_ATRIBUTE, index);
 		}
-
+		
 		model.addAttribute("comparacao", comparacaoService.carregarComparacao(index));
+		System.out.println("index: " + index + " - comparacao: " + comparacaoService.carregarComparacao(index));
+		
 		if(index != 9){
 			return INDEX_VIEW;
 		}else{
@@ -56,19 +57,21 @@ public class IndexController {
 	
 	@RequestMapping(value = "/salvar/voto", method=RequestMethod.POST)
 	@ResponseBody
-	public String salvarVoto(Integer livroId){
+	public String salvarVoto(Integer livroId, HttpServletRequest request){
+		HttpSession session = request.getSession();
 		
 		Integer index = (Integer) session.getAttribute(INDEX_SESSION_ATRIBUTE);
 		session.setAttribute(INDEX_SESSION_ATRIBUTE, ++index);
 				
-		List<Livro> livrosVotados = carregarListaVotados(livroId);
+		List<Livro> livrosVotados = carregarListaVotados(livroId, request);
 		
 		session.setAttribute("livrosVotados", livrosVotados);
 	
 		return "ok";		
 	}
 	
-	private List<Livro> carregarListaVotados(Integer livroId) {
+	private List<Livro> carregarListaVotados(Integer livroId, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		
 		List<Livro> livrosVotados = (List<Livro>) session.getAttribute("livrosVotados");
 				

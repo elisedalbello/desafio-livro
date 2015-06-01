@@ -26,7 +26,7 @@
 		<footer class="rodape"> Bluesoft 2015 </footer>
 		
 		<script type="text/javascript" src="pages/js/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="pages/js/comparacao.js"></script>
+		<script type="text/javascript" src="pages/js/script.js"></script>
 		<script type="text/javascript"></script>
 	</body>
 </html>

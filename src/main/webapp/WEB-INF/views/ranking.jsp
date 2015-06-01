@@ -13,23 +13,30 @@
 	<body>
 		<h1 class="titulo-principal">Ranking</h1>
 		
-		<h2 class="ranking-usuario">Ranking Usuário</h2>
-		<ul class="ranking-usuario">
-			<li>Teste Ranking Usuário</li>
-			<li>Teste Ranking Usuário</li>
-			<li>Teste Ranking Usuário</li>
-		</ul>
-		"<h2 class="ranking-geral">Ranking Geral</h2>
-		<ul class="ranking-geral">
-			<li>Teste Ranking Geral</li>
-			<li>Teste Ranking Geral</li>
-			<li>Teste Ranking Geral</li>
-		</ul>
+		<div class="ranking-usuario">
+			<h1>Ranking Usuário</h2>
+			<ul>
+				<c:forEach var="u" items="${rankingUsuario}">
+					<li>${u.key} - ${u.value}</li>
+				</c:forEach>
+			</ul>
+		</div>
+		
+		<div class="ranking-geral">
+			<h1>Ranking Geral</h2>
+			<ul>
+				<c:forEach var="g" items="${rankingGeral}">
+					<li>${g.key} - ${g.value}</li>
+				</c:forEach>
+			</ul>
+		</div>
+		
+		<button class="nova-votacao" id="nova-votacao" name="nova-votacao"> Nova Votação </button>
 		
 		<footer class="rodape"> Bluesoft 2015 </footer>
 		
 		<script type="text/javascript" src="pages/js/jquery-2.1.4.min.js"></script>
-		<script type="text/javascript" src="pages/js/comparacao.js"></script>
+		<script type="text/javascript" src="pages/js/script.js"></script>
 		<script type="text/javascript"></script>
 	</body>
 </html>

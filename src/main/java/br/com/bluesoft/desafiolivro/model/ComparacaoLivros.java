@@ -23,4 +23,9 @@ public class ComparacaoLivros {
 	public void setLivroDireita(Livro livroDireita) {
 		this.livroDireita = livroDireita;
 	}
+	
+	@Override
+	public String toString() {
+		return "Livro esquerda: " + livroEsquerda + " - Livro direita: " + livroDireita;
+	}
 }
