@@ -19,11 +19,11 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public List<Usuario> recuperarUsuarios() {
+	public List<Usuario> listarUsuarios() {
 		return dao.listar();
 	}
 	
-	public Usuario recuperarUsuarioPeloID(int usuarioID){
+	public Usuario obterUsuarioPeloID(int usuarioID){
 		return dao.obterPeloID(usuarioID);
 	}
 }

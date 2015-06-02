@@ -25,7 +25,6 @@ public class ComparacaoLivrosService {
 		for (i = 1; i <= livros.size(); i++) {
 			for (j = i + 1; j <= livros.size(); j++) {
 				
-				//lista começa no 0...
 				Livro livroEsquerda = livros.get(i-1);
 				Livro livroDireita = livros.get(j-1);
 				

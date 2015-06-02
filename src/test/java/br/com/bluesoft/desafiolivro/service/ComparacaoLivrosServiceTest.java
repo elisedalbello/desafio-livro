@@ -46,4 +46,11 @@ public class ComparacaoLivrosServiceTest {
 		assertEquals("Guerra e Paz", comparacoes.get(0).getLivroDireita().getNome());
 	}
 	
+	@Test
+	public void deveCarregarUmaComparacao(){
+		ComparacaoLivros comparacao = service.carregarComparacao(1);
+		
+		assertEquals("1984", comparacao.getLivroEsquerda().getNome());
+		assertEquals("Lolita", comparacao.getLivroDireita().getNome());
+	}
 }

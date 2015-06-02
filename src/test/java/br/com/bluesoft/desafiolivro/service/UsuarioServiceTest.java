@@ -30,17 +30,25 @@ public class UsuarioServiceTest {
 
 	
 	@Test
-	public void deveRecuperarTodosOsUsuarios(){
+	public void deveListarTodosOsUsuarios(){
 		Usuario usuario = new Usuario("Maria", "maria@email.com.br");
 		service.salvar(usuario);
 		Usuario usuario2 = new Usuario("Joao", "joao@email.com.br");
 		service.salvar(usuario2);
 		
-		List<Usuario> usuarios = service.recuperarUsuarios();
+		List<Usuario> usuarios = service.listarUsuarios();
 		
 		assertEquals(3, usuarios.size());
 		assertEquals("Elise", usuarios.get(0).getNome());
 		assertEquals("Maria", usuarios.get(1).getNome());
 		assertEquals("Joao", usuarios.get(2).getNome());
+	}
+	
+	@Test
+	public void deveObterUsuarioPeloId(){
+		Usuario usuario = service.obterUsuarioPeloID(1);
+		
+		assertEquals("Elise", usuario.getNome());
+		assertEquals("elise@email.com.br", usuario.getEmail());
 	}
 }

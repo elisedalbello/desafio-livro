@@ -26,6 +26,6 @@ public class ComparacaoLivros {
 	
 	@Override
 	public String toString() {
-		return "Livro esquerda: " + livroEsquerda + " - Livro direita: " + livroDireita;
+		return "Livros: " + livroEsquerda + " - " + livroDireita;
 	}
 }

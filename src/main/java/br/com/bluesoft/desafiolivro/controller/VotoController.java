@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -38,16 +37,6 @@ public class VotoController {
 		
 		return "ranking";		
 	}	
-	
-	@RequestMapping(value="/ranking")
-	public String exibirRankings(Model model, HttpServletRequest request){
-		HttpSession session = request.getSession();
-		
-		model.addAttribute("rankingGeral", service.obterRankingGeralOrdenado());
-		model.addAttribute("rankingUsuario", service.obterRankingUsuarioOrdenado(getUsuarioSession(request)));
-		
-		return "ranking";
-	}
 	
 	private Usuario getUsuarioSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();

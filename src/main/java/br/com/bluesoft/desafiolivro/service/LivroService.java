@@ -20,11 +20,11 @@ public class LivroService {
 
 	}
 
-	public List<Livro> recuperarLivros() {
+	public List<Livro> listarLivros() {
 		return dao.listar();
 	}
 
-	public Livro recuperarLivroPeloID(int livroID) {
+	public Livro obterLivroPeloID(int livroID) {
 		return dao.obterPeloID(livroID);
 	}
 	

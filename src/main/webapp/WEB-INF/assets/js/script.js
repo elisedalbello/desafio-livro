@@ -25,6 +25,18 @@ $('.livro').click(function() {
 	});
 });
 
+$('#nova-votacao').click(function() {
+	$.ajax({
+		type : 'GET',
+		url : 'novaVotacao',
+		success : function() {
+			location.href = 'index';
+		},
+		error : function() {
+			alert("Não foi possivel redirecionar para nova votação");
+		}
+	});
+});
 
 $('#gravar').click(function(){
 	var email = $('#email').val();
@@ -53,18 +65,3 @@ $('#gravar').click(function(){
 		});
 	}
 });
-
-
-//$('#nova-votacao').click(function() {
-//$.ajax({
-//	type : 'GET',
-//	url : '/',
-//	context : document.body,
-//	success : function() {
-//		location.href = '/';
-//	},
-//	error : function() {
-//		alert("Não foi possivel redirecionar para nova votação");
-//	}
-//});
-//});

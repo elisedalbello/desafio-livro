@@ -34,10 +34,11 @@ public class LivroServiceTest {
 	}
 	
 	@Test
-	public void deveRecuperarLivroPeloID(){
-		Livro livro = service.recuperarLivroPeloID(11);
+	public void deveObterLivroPeloID(){
+		Livro livro = service.obterLivroPeloID(22);
 		
-		assertEquals(11, livro.getId());
+		assertEquals(22, livro.getId());
+		assertEquals("1984", livro.getNome());
 	}
 		
 	@Test
@@ -50,17 +51,17 @@ public class LivroServiceTest {
 	}
 	
 	@Test
-	public void deveLimparATabelaDeLivros() {
+	public void deveDeletarLivros() {
 		service.deletaLivros();
 		
-		List<Livro> livros = service.recuperarLivros();
+		List<Livro> livros = service.listarLivros();
 
 		assertEquals(0, livros.size());
 	}
 	
 	@Test
-	public void deveRecuperarTodosOsLivros(){
-		List<Livro> livros = service.recuperarLivros();
+	public void deveListarTodosOsLivros(){
+		List<Livro> livros = service.listarLivros();
 		
 		assertEquals(5, livros.size());
 		assertEquals("1984", livros.get(0).getNome());

@@ -34,7 +34,7 @@ public class IndexController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = { "" ,"/" }, method=RequestMethod.GET )
+	@RequestMapping(value="index", method=RequestMethod.GET )
 	public String voteNoLivro(Model model, Integer indexLista, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
@@ -78,7 +78,7 @@ public class IndexController {
 			livrosVotados = new ArrayList<>();
 		}
 		
-		livrosVotados.add(livroService.recuperarLivroPeloID(livroId));
+		livrosVotados.add(livroService.obterLivroPeloID(livroId));
 		return livrosVotados;
 	}
 
