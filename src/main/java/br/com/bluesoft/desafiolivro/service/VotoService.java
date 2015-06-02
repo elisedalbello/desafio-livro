@@ -53,7 +53,6 @@ public class VotoService {
 		return dao.obterRanking(usuario);
 	}
 	
-
 	public void salvarVoto(Usuario usuario, List<Livro> livros) {
 		for(Livro livro : livros){
 			Voto ranking = new Voto(livro, usuario);

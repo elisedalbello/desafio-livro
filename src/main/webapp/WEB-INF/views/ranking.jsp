@@ -17,7 +17,7 @@
 			<h1>Ranking Usuário</h2>
 			<ul>
 				<c:forEach var="u" items="${rankingUsuario}">
-					<li>${u.key} - ${u.value}</li>
+					<li>${u.value} - ${u.key}</li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -26,7 +26,7 @@
 			<h1>Ranking Geral</h2>
 			<ul>
 				<c:forEach var="g" items="${rankingGeral}">
-					<li>${g.key} - ${g.value}</li>
+					<li>${g.value} - ${g.key}</li>
 				</c:forEach>
 			</ul>
 		</div>
